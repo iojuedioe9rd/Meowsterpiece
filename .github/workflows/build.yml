@@ -20,7 +20,6 @@ jobs:
         run: |
           wget https://github.com/premake/premake-core/releases/download/v5.0.0-alpha16/premake-5.0.0-alpha16-linux.tar.gz
           tar -xzf premake-5.0.0-alpha16-linux.tar.gz
-          mv premake5 /usr/local/bin/premake
           premake5 --version  # Verify Premake installation
 
       - name: Generate build files with Premake
