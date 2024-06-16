@@ -23,7 +23,7 @@ jobs:
           ./premake5 --version  # Verify Premake installation
 
       - name: Generate build files with Premake
-        run: ./premake5 --file=premake5.lua --os=linux vs2022  # Adjust Premake script and OS as necessary
+        run: ./premake5 --file=premake5.lua --os=linux gmake  # Adjust Premake script and OS as necessary
 
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v1
@@ -31,7 +31,7 @@ jobs:
           dotnet-version: '6.0.x'  # Replace with your desired .NET version
 
       - name: Restore dependencies
-        run: dotnet restore src/Meowsterpiece.sln  # Adjust path to your solution file
+        run: cd src && make
 
       - name: Build
         run: dotnet build src/Meowsterpiece.sln --configuration Release --no-restore
